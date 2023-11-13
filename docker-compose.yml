@@ -1,0 +1,27 @@
+services:
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: ./api
+      target: development
+    volumes:
+      - ./api:/usr/src/app
+      - /usr/src/app/node_modules
+    env_file:
+      - ./api/.env
+    command: npm run start:dev
+    ports:
+      - 3000:3000
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=caching_sha2_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: b-contact
+    ports:
+      - '3306:3306'
+    volumes:
+    - mysql:/var/lib/mysql
+volumes:
+  mysql: ~
