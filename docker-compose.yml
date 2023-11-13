@@ -2,13 +2,13 @@ services:
   api:
     build:
       dockerfile: Dockerfile
-      context: ./api
+      context: ./b-contact-api
       target: development
     volumes:
-      - ./api:/usr/src/app
+      - ./b-contact-api:/usr/src/app
       - /usr/src/app/node_modules
     env_file:
-      - ./api/.env
+      - ./b-contact-api/.env
     command: npm run start:dev
     ports:
       - 3000:3000
