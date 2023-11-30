@@ -1,3 +1,6 @@
 [submodule "b-contact-api"]
 	path = b-contact-api
 	url = git@github.com:bimaaria/b-contact-api.git
+[submodule "b-contact-web"]
+	path = b-contact-web
+	url = git@github.com:bimaaria/b-contact-web.git
