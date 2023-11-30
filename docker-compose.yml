@@ -11,7 +11,16 @@ services:
       - ./b-contact-api/.env
     command: npm run start:dev
     ports:
+      - 5000:5000
+  web:
+    build:
+      context: ./b-contact-web
+      dockerfile: Dockerfile
+    ports:
       - 3000:3000
+    volumes:
+      - ./b-contact-web:/usr/src/app
+      - /usr/src/app/node_modules
   db:
     image: mysql:8.0
     command: --default-authentication-plugin=caching_sha2_password
